@@ -48,8 +48,3 @@ body,
 #root > div {
   height: 100%;
 }
-
-:root {
-  --tglbg-light: white;
-  --tglbg-dark: #1a202c; /* dark-900 equivalent */
-}
