@@ -1,16 +1,26 @@
+import { useMemo } from "react";
+
 interface ISunIconProps {
   width: number;
   height: number;
   color?: string;
+  showIcon?: boolean;
 }
 
-const SunIcon = ({ width, height, color = "current" }: ISunIconProps) => {
+const SunIcon = ({
+  width,
+  height,
+  color = "current",
+  showIcon,
+}: ISunIconProps) => {
+  const display = useMemo(() => showIcon, []);
+
   return (
     <svg
       height={height}
       width={width}
       fill={color}
-      className="swap-on"
+      className={`swap-${display ? "off" : "on"}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

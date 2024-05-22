@@ -1,5 +1,5 @@
-import { useDarkTheme } from "@src/stores/dark-theme-store";
 import clsx from "clsx";
+import { useDarkTheme } from "@src/stores/dark-theme-store";
 
 interface IDarkThemeProviderProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ const DarkThemeProvider = ({ children }: IDarkThemeProviderProps) => {
         {
           dark: isDarkTheme,
         },
-        "bg-white dark:bg-dark-900"
+        "theme-provider h-full bg-white dark:bg-dark-900"
       )}
     >
       {children}

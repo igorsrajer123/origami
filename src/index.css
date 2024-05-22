@@ -42,9 +42,33 @@
   src: url("/fonts/Ubuntu-MediumItalic.ttf") format("truetype");
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html,
-body,
-#root,
-#root > div {
+body {
   height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.theme-provider {
+  background-image: url("/Sound Wave (2).svg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }

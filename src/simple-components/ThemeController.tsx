@@ -1,16 +1,13 @@
 import MoonIcon from "@src/icons/moon-icon";
 import SunIcon from "@src/icons/sun-icon";
+import { useDarkTheme } from "@src/stores/dark-theme-store";
 import clsx from "clsx";
 
-interface IThemeControllerProps {
-  isDarkTheme: boolean;
-  handleClick: () => void;
-}
+const ThemeController = () => {
+  const { isDarkTheme, toggleDarkTheme } = useDarkTheme();
 
-const ThemeController = ({
-  isDarkTheme,
-  handleClick,
-}: IThemeControllerProps) => {
+  console.log(isDarkTheme);
+
   return (
     <label
       className={clsx(
@@ -21,20 +18,12 @@ const ThemeController = ({
       <input
         type="checkbox"
         className="theme-controller"
-        value="default"
-        onClick={handleClick}
+        value="synthwave"
+        onClick={toggleDarkTheme}
       />
 
-      <MoonIcon
-        width={35}
-        height={35}
-        color={!isDarkTheme ? "white" : "dark-900"}
-      />
-      <SunIcon
-        width={35}
-        height={35}
-        color={!isDarkTheme ? "white" : "dark-900"}
-      />
+      <MoonIcon width={35} height={35} color="#fff" showIcon={!isDarkTheme} />
+      <SunIcon width={35} height={35} color="#f0f0f0f" showIcon={isDarkTheme} />
     </label>
   );
 };

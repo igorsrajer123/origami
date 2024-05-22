@@ -1,10 +1,22 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import tailwindcss from "tailwindcss";
 import path from "path";
 
+import react from "@vitejs/plugin-react";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    ViteImageOptimizer({
+      jpg: {
+        quality: 35,
+      },
+      webp: {
+        quality: 35,
+      },
+    }),
+  ],
   server: {
     port: 3000,
   },
