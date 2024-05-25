@@ -1,4 +1,5 @@
 import clsx from "clsx";
+//STORES
 import { useDarkTheme } from "@src/stores/dark-theme-store";
 
 interface IDarkThemeProviderProps {
@@ -13,7 +14,7 @@ const DarkThemeProvider = ({ children }: IDarkThemeProviderProps) => {
         {
           dark: isDarkTheme,
         },
-        "theme-provider h-full bg-white dark:bg-dark-900"
+        "theme-provider h-full"
       )}
     >
       {children}
