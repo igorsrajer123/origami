@@ -14,7 +14,8 @@ const DarkThemeProvider = ({ children }: IDarkThemeProviderProps) => {
         {
           dark: isDarkTheme,
         },
-        "theme-provider h-full"
+        "theme-provider h-full w-full p-[35px] flex flex-col items-center gap-[25px]",
+        "bg-red-400 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10"
       )}
     >
       {children}

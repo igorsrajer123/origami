@@ -1,20 +1,40 @@
-interface ButtonProps {
+import clsx from "clsx";
+
+type ButtonVariant = "primary" | "info" | "error" | "success";
+
+interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   /**
-   * Is this the principal call to action on the page?
+   * Color variant of the button
    */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
+  variant?: ButtonVariant;
   /**
    * How large should the button be?
    */
-  size?: "small" | "medium" | "large";
+  size?: "tiny" | "small" | "normal" | "large";
   /**
-   * Button contents
+   * Should the button have a circle shape?
    */
-  label: string;
+  isCircle?: boolean;
+  /**
+   * Icon in front of the text label
+   */
+  icon?: unknown;
+  /**
+   * Loading indicator for the button
+   */
+  isLoading?: boolean;
+  /**
+   * Indicator for disabled state of the button
+   */
+  isDisabled?: boolean;
+  /**
+   * Additional className applied to the button
+   */
+  className?: string;
   /**
    * Optional click handler
    */
@@ -24,19 +44,49 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
-  // primary = false,
-  // size = "medium",
-  // backgroundColor,
-  label,
+const Button = ({
+  variant = "primary",
+  size = "normal",
+  isCircle,
+  icon,
+  isLoading,
+  isDisabled,
+  className,
+  onClick,
   ...props
 }: ButtonProps) => {
   return (
     <button
-      className="btn bg-dark-900 dark:bg-white text-white dark:text-dark-900"
-      {...props}
+      type="button"
+      onClick={onClick}
+      disabled={isDisabled}
+      className={clsx(
+        "btn border-none w-full",
+        {
+          "bg-white text-dark-900 hover:text-white dark:bg-dark-900 dark:text-white dark:hover:bg-white dark:hover:text-dark-900":
+            variant === "primary",
+          "btn-error": variant === "error",
+          "btn-success": variant === "success",
+          "btn-info": variant === "info",
+          "text-white dark:text-dark-900": variant !== "primary",
+          "btn-lg": size === "large",
+          "btn-sm": size === "small",
+          "btn-xs": size === "tiny",
+          "btn-circle": isCircle,
+        },
+        className
+      )}
     >
-      {label}
+      {isLoading ? (
+        <span className="loading loading-spinner"></span>
+      ) : (
+        <>
+          {icon}
+          {props.children}
+        </>
+      )}
     </button>
   );
 };
+
+export default Button;

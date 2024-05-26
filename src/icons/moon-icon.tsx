@@ -1,15 +1,27 @@
 import { useMemo } from "react";
 
 interface IMoonIconProps {
+  /**
+   * Icon width
+   */
   width: number;
+  /**
+   * Icon height
+   */
   height: number;
+  /**
+   * Stroke color
+   */
   color?: string;
+  /**
+   * Visibiliy indicator
+   */
   showIcon?: boolean;
 }
 
 const MoonIcon = ({
-  width,
-  height,
+  width = 24,
+  height = 24,
   color = "current",
   showIcon,
 }: IMoonIconProps) => {

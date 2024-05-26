@@ -4,6 +4,9 @@ import SunIcon from "@src/icons/sun-icon";
 //STORES
 import { useDarkTheme } from "@src/stores/dark-theme-store";
 
+/**
+ * Primary UI component for toggling between light and dark theme
+ */
 const ThemeController = () => {
   const { isDarkTheme, toggleDarkTheme } = useDarkTheme();
 

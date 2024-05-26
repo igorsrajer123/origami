@@ -1,9 +1,21 @@
 import { useMemo } from "react";
 
 interface ISunIconProps {
+  /**
+   * Icon width
+   */
   width: number;
+  /**
+   * Icon height
+   */
   height: number;
+  /**
+   * Stroke color
+   */
   color?: string;
+  /**
+   * Visibiliy indicator
+   */
   showIcon?: boolean;
 }
 

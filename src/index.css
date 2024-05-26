@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.light-glass {
-  @apply bg-clip-padding bg-opacity-25 backdrop-filter backdrop-blur-2xl bg-white;
-}
-
-.dark-glass {
-  @apply bg-clip-padding bg-opacity-40 backdrop-filter backdrop-blur-2xl bg-dark-900;
-}
-
 @font-face {
   font-family: "Ubuntu Regular";
   src: url("/fonts/Ubuntu-Regular.ttf") format("truetype");
@@ -50,6 +42,21 @@
   src: url("/fonts/Ubuntu-MediumItalic.ttf") format("truetype");
 }
 
+/* Set 'Ubuntu Regular' to each element in the project */
+@layer base {
+  body {
+    font-family: "Ubuntu Regular", sans-serif;
+  }
+}
+
+.light-glass {
+  @apply bg-clip-padding bg-opacity-25 backdrop-filter backdrop-blur-2xl bg-white;
+}
+
+.dark-glass {
+  @apply bg-clip-padding bg-opacity-40 backdrop-filter backdrop-blur-2xl bg-dark-900;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -74,19 +81,10 @@ body {
   align-items: center;
 }
 
+/* Add media query for smaller screens for smaller image maybe?*/
 .theme-provider {
   background-image: url("/landing-image.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  width: 100%;
-  padding: 35px;
-  display: flex;
-  gap: 25px;
-  flex-direction: column;
-  align-items: center;
 }
-
-/* Add media query for smaller screens for smaller image maybe?*/
-/* Transfer some of these classes to Tailwind duh */

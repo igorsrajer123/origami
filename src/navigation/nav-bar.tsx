@@ -11,7 +11,8 @@ const NavBar = () => {
     <div
       className={clsx(
         "w-3/4 h-[8%] p-5 flex justify-end items-center shadow-2xl rounded-xl",
-        isDarkTheme ? "dark-glass" : "light-glass"
+        isDarkTheme ? "dark-glass" : "light-glass",
+        "transition-opacity ease-in duration-700"
       )}
     >
       <ThemeController />
